@@ -25,11 +25,9 @@ public class CustomList extends ArrayAdapter<City> {
         this.context = context;
     }
 
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-//        return super.getView(position, convertView, parent);
         View view = convertView;
 
         if(view == null){
@@ -45,6 +43,20 @@ public class CustomList extends ArrayAdapter<City> {
         provinceName.setText(city.getProvinceName());
 
         return view;
+    }
+    @Override
+    public int getCount() {
+        return cities.size();
+    }
+    
 
+
+    public Boolean hasCity() {
+        return !cities.isEmpty();
+    }
+
+
+    public void deleteCity() {
+        cities.remove(cities.size() - 1);
     }
 }
